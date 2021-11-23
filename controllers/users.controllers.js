@@ -62,13 +62,13 @@ exports.LogoutUSer = async (req, res) => {
 
             userLog.login = false
             userLog.save()
-            
-            /*    req.session.destroy((err) => {
-                   if (err) console.log(err)
-               }) */
 
-         res.render('logout', { info: userLog }) 
-         
+            req.session.destroy((err) => {
+                if (err) console.log(err)
+            })
+
+            res.render('logout', { info: userLog })
+
         }
 
     } catch (error) {
